@@ -1,3 +1,15 @@
+# .NET
 **/bin/
 **/obj/
+*.user
+
+# Node / Angular
+**/node_modules/
+**/dist/
+**/.angular/
+web/e2e/capturas/
+
+# IDEs e sistema
 **/.idea/
+**/.vs/
+.DS_Store

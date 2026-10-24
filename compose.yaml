@@ -1,14 +1,18 @@
-# Sobe backend (.NET) e frontend (Angular + nginx) juntos: docker compose up --build
+# Sobe a API (.NET, pasta api/) e o front (Angular + nginx, pasta web/) juntos: docker compose up --build
 # Front: http://localhost:4200 · API/Swagger: http://localhost:8080/swagger
 services:
   api:
     image: antecipe-api
     build:
-      context: .
-      dockerfile: antecipe-kanastra-back/antecipe-kanastra-back/Dockerfile
+      context: ./api
     environment:
-      # A data da análise usa DateTime.Today: sem isso o container seguiria o UTC.
+      # Horário local nos logs; as regras usam a DATA_AQUISICAO de cada nota, não a data do servidor.
       TZ: America/Sao_Paulo
+      # Opcionais: trocam regras e bases sem rebuild (monte os arquivos com um volume).
+      # Padrão: arquivos de /app/Dados, copiados de api/Antecipe.Api/Dados no build.
+      # ANTECIPE_CONFIG: /app/Dados/validators.json
+      # ANTECIPE_ESTOQUE: /app/Dados/estoque_antecipe.csv
+      # ANTECIPE_SITUACOES: /app/Dados/situacoes_cadastrais_dev.json
     ports:
       - "${API_PORT:-8080}:8080"
     healthcheck:
@@ -23,7 +27,7 @@ services:
   web:
     image: antecipe-web
     build:
-      context: ./antecipe-kanastra-front
+      context: ./web
     depends_on:
       api:
         condition: service_healthy

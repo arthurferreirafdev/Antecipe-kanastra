@@ -1,0 +1,216 @@
+@if (resumo(); as r) {
+  <!-- Cabeçalho editorial -->
+  <section class="page cabecalho">
+    <p class="eyebrow rise">Resultado da análise · <span class="cabecalho__arquivo">{{ analise()?.arquivoNome }}</span></p>
+    <h1 class="cabecalho__titulo display rise rise-1">{{ titulo() }}</h1>
+    <div class="cabecalho__rodape rise rise-2">
+      <p class="cabecalho__meta">
+        Analisado em {{ quando() }} · Simulação: nenhuma nota foi cedida ao fundo.
+        @if (!guardada()) {
+          <span>Não foi possível guardar este resultado no navegador.</span>
+        }
+      </p>
+      <div class="cabecalho__acoes">
+        @if (download()) {
+          <button type="button" class="btn btn--ghost btn--sm" (click)="baixarSomenteAprovadas()"><svg lucideDownload aria-hidden="true"></svg> CSV só com as aprovadas</button>
+        }
+        <button type="button" class="btn btn--ghost btn--sm" (click)="exportar()"><svg lucideDownload aria-hidden="true"></svg> Exportar resultado</button>
+        <a class="btn btn--sm" routerLink="/nova-antecipacao"><svg lucidePlus aria-hidden="true"></svg> Nova antecipação</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Oferta do arquivo só com as aprovadas -->
+  @if (download(); as d) {
+    @if (!downloadDispensado()) {
+      <section class="page download-secao" aria-labelledby="download-titulo">
+        <div class="download rise rise-2">
+          <span class="download__icone" aria-hidden="true"><svg lucideDownload></svg></span>
+          <div class="download__texto">
+            <p id="download-titulo" class="download__titulo">Arquivo pronto só com as notas aprovadas</p>
+            <p class="download__pergunta">{{ d.pergunta }}</p>
+            @if (d.duplicadas.length) {
+              <details class="download__duplicadas">
+                <summary>{{ d.duplicadas.length === 1 ? 'Ver a nota duplicada' : 'Ver as ' + d.duplicadas.length + ' notas duplicadas' }}</summary>
+                <ul>
+                  @for (n of d.duplicadas; track n.linha) {
+                    <li>
+                      <span class="mono">{{ n.numeroDocumento }}</span>
+                      <span class="muted">Linha {{ n.linha }} · repete a linha {{ n.linhaOriginal }}</span>
+                    </li>
+                  }
+                </ul>
+              </details>
+            }
+          </div>
+          <div class="download__acoes">
+            <button type="button" class="btn btn--primary btn--sm" (click)="baixarSomenteAprovadas()">
+              <svg lucideDownload aria-hidden="true"></svg> Baixar CSV
+            </button>
+            <button type="button" class="btn btn--ghost btn--sm" (click)="downloadDispensado.set(true)">Agora não</button>
+          </div>
+        </div>
+      </section>
+    }
+  }
+
+  <!-- Quanto vou receber -->
+  <section class="page" aria-labelledby="receber-titulo">
+    <div class="hero rise rise-2">
+      <div class="hero__valor">
+        <p class="eyebrow eyebrow--inverso" id="receber-titulo">Você recebe</p>
+        <app-money [valor]="r.valorLiquido" tamanho="hero" [animar]="true" />
+        <p class="hero__sub">
+          @if (r.aprovadas > 0) {
+            @if (r.aprovadas === 1) {
+              Valor líquido estimado da nota aprovada, calculado pelo fundo.
+            } @else {
+              Valor líquido estimado das {{ r.aprovadas | inteiro }} notas aprovadas, calculado pelo fundo.
+            }
+          } @else {
+            Nenhuma nota atendeu às regras do fundo nesta análise. Veja abaixo o motivo de cada recusa.
+          }
+        </p>
+      </div>
+
+      <div class="hero__conta">
+        <p class="hero__conta-titulo">Como chegamos a esse valor</p>
+        <dl>
+          <div>
+            <dt>Valor de face das notas elegíveis</dt>
+            <dd>{{ r.valorNominalElegivel | brl }}</dd>
+          </div>
+          <div>
+            <dt>
+              Desconto da antecipação
+              @if (r.valorNominalElegivel > 0) {
+                <span>{{ r.descontoEfetivo | pct: 2 }} do valor de face</span>
+              }
+            </dt>
+            <dd>− {{ r.desconto | brl }}</dd>
+          </div>
+          <div class="hero__conta-total">
+            <dt>Valor líquido a receber</dt>
+            <dd>{{ r.valorLiquido | brl }}</dd>
+          </div>
+        </dl>
+        <p class="hero__nota">
+          O desconto é simples e proporcional aos dias até o vencimento de cada nota: quanto mais longe o vencimento, maior o desconto. O cálculo
+          oficial é feito pelo servidor do fundo.
+        </p>
+      </div>
+
+      <div class="hero__barra">
+        <p class="hero__barra-titulo">Do total enviado de {{ r.valorNominalEnviado | brl }}</p>
+        <app-composicao-bar [segmentos]="segmentos()" [inverso]="true" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Quais notas posso antecipar -->
+  <section class="page respostas rise rise-3" aria-label="Resumo das notas">
+    <div class="resposta">
+      <p class="resposta__rotulo">Aprovadas</p>
+      <p class="resposta__num resposta__num--aprovada">{{ r.aprovadas | inteiro }}</p>
+      <p class="resposta__txt">{{ r.aprovadas === 1 ? 'nota pode' : 'notas podem' }} ser antecipadas</p>
+      <div class="resposta__trilho" aria-hidden="true"><span [style.width.%]="r.percentualElegibilidade * 100"></span></div>
+    </div>
+    <div class="resposta">
+      <p class="resposta__rotulo">Recusadas</p>
+      <p class="resposta__num resposta__num--recusada">{{ r.recusadas | inteiro }}</p>
+      @if (r.recusadas > 0) {
+        <a class="link resposta__link" routerLink="." fragment="motivos" queryParamsHandling="preserve">Entender por quê <svg lucideArrowDown aria-hidden="true"></svg></a>
+      } @else {
+        <p class="resposta__txt">nenhuma recusa</p>
+      }
+    </div>
+    <div class="resposta">
+      <p class="resposta__rotulo">Elegibilidade</p>
+      <p class="resposta__num">{{ r.percentualElegibilidade | pct: 0 }}</p>
+      <p class="resposta__txt">das {{ r.total | inteiro }} notas enviadas</p>
+    </div>
+    @if (r.pendentes > 0) {
+      <div class="resposta">
+        <p class="resposta__rotulo">Pendentes</p>
+        <p class="resposta__num resposta__num--pendente">{{ r.pendentes | inteiro }}</p>
+        <p class="resposta__txt">verificação não concluída</p>
+      </div>
+    }
+  </section>
+
+  <!-- Por que algumas notas foram recusadas -->
+  @if (motivosResumo().length) {
+    <section id="motivos" class="page motivos" aria-labelledby="motivos-titulo">
+      <header class="secao">
+        <h2 id="motivos-titulo" class="secao__titulo">Por que algumas notas foram recusadas</h2>
+        <p class="secao__sub">Uma nota pode ter mais de um motivo. Escolha um motivo para ver as notas afetadas.</p>
+      </header>
+      <ul class="motivos__lista">
+        @for (m of motivosResumo(); track m.codigo) {
+          <li>
+            <button type="button" class="motivo" [class.motivo--ativo]="filtroMotivo() === m.codigo" (click)="verNotasDoMotivo(m.codigo)">
+              <span class="motivo__icone" aria-hidden="true"><svg [lucideIcon]="m.icone"></svg></span>
+              <span class="motivo__texto">
+                <span class="motivo__titulo">{{ m.titulo }}</span>
+                <span class="motivo__explicacao">{{ m.explicacao }}</span>
+              </span>
+              <span class="motivo__numeros">
+                <span class="motivo__qtd">{{ m.quantidade | inteiro }} {{ m.quantidade === 1 ? 'nota' : 'notas' }}</span>
+                <span class="motivo__valor">{{ m.valorNominal | brl }}</span>
+              </span>
+              <svg class="motivo__seta" lucideArrowRight aria-hidden="true"></svg>
+            </button>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <!-- Composição por recebível -->
+  <section id="notas" class="page notas" aria-labelledby="notas-titulo">
+    <header class="secao">
+      <h2 id="notas-titulo" class="secao__titulo">Composição por recebível</h2>
+      <p class="secao__sub">Toque em uma nota para ver o valor detalhado ou a explicação da recusa.</p>
+    </header>
+    <app-notas-tabela
+      [notas]="notas()"
+      [status]="filtroStatus()"
+      [motivo]="filtroMotivo()"
+      (statusChange)="definirStatus($event)"
+      (motivoChange)="definirMotivo($event)"
+      (abrir)="abrirNota($event)"
+    />
+  </section>
+
+  @if (notaAberta(); as n) {
+    <app-side-panel rotuladoPor="nota-titulo" (fechar)="fecharNota()">
+      <app-nota-detalhe
+        [nota]="n"
+        [posicao]="(navegacao()?.pos ?? 0) + 1"
+        [total]="navegacao()?.lista?.length ?? notas().length"
+        (fechar)="fecharNota()"
+        (anterior)="vizinha(-1)"
+        (proxima)="vizinha(1)"
+      />
+    </app-side-panel>
+  }
+} @else if (enviando()) {
+  <section class="page carregando" aria-busy="true">
+    <span class="sr-only" role="status">Analisando suas notas…</span>
+    <app-skeleton largura="180px" altura="12px" />
+    <app-skeleton largura="min(640px, 90%)" altura="48px" />
+    <div class="carregando__hero"><app-skeleton largura="100%" altura="260px" /></div>
+    <div class="carregando__linhas">
+      @for (i of [1, 2, 3, 4, 5]; track i) {
+        <app-skeleton altura="44px" />
+      }
+    </div>
+  </section>
+} @else {
+  <section class="page vazio">
+    <p class="eyebrow">Resultado da análise</p>
+    <h1 class="vazio__titulo display">Ainda não há uma análise para mostrar.</h1>
+    <p class="vazio__texto">Envie um arquivo com suas notas. O resultado aparece aqui, com o valor que você recebe e o motivo de cada recusa.</p>
+    <a class="btn btn--primary btn--lg" routerLink="/nova-antecipacao">Nova antecipação <svg lucideArrowRight class="btn__arrow" aria-hidden="true"></svg></a>
+  </section>
+}

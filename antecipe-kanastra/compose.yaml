@@ -1,9 +1,0 @@
-﻿services:
-  antecipe-kanastra:
-    image: antecipe-kanastra
-    build:
-      context: ..
-      dockerfile: antecipe-kanastra-back/antecipe-kanastra-back/Dockerfile
-    ports:
-      - "8080:8080"
-

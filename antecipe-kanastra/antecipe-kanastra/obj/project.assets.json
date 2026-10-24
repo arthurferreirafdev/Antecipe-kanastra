@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/Users/arthur/.nuget/packages/": {}
+    "/home/tg15/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/antecipe-kanastra.csproj",
+      "projectUniqueName": "/home/tg15/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/antecipe-kanastra.csproj",
       "projectName": "antecipe-kanastra",
-      "projectPath": "/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/antecipe-kanastra.csproj",
-      "packagesPath": "/Users/arthur/.nuget/packages/",
-      "outputPath": "/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/",
+      "projectPath": "/home/tg15/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/antecipe-kanastra.csproj",
+      "packagesPath": "/home/tg15/.nuget/packages/",
+      "outputPath": "/home/tg15/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/arthur/.nuget/NuGet/NuGet.Config"
+        "/home/tg15/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/home/tg15/.dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

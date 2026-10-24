@@ -15,23 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="819f8dd7-1384-4fed-ac69-4c69e4e845dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../antecipe-kanastra-back/antecipe-kanastra-back/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../antecipe-kanastra-back/antecipe-kanastra-back/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/apphost" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/apphost" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../historic.MD" beforeDir="false" afterPath="$PROJECT_DIR$/../historic.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,29 +113,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.antecipe-kanastra-back.executor": "Run",
-    ".NET Project.antecipe-kanastra.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feat/validators",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.antecipe-kanastra-back.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.antecipe-kanastra.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/validators&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.antecipe-kanastra-back">
     <configuration name="antecipe-kanastra-back" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -326,8 +310,18 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="8117b941-4d1f-49ca-949e-f0704d6fb5f3" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="8117b941-4d1f-49ca-949e-f0704d6fb5f3">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />

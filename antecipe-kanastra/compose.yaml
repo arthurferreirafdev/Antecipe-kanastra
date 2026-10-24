@@ -1,0 +1,7 @@
+﻿services:
+  antecipe-kanastra:
+    image: antecipe-kanastra
+    build:
+      context: .
+      dockerfile: antecipe-kanastra/Dockerfile
+

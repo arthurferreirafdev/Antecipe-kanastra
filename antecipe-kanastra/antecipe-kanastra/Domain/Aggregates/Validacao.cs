@@ -1,13 +1,13 @@
-using antecipe_kanastra.Domain.Abstract;
 using antecipe_kanastra.Domain.Aggregates;
+using antecipe_kanastra.Domain.Services.Validadores;
 
-namespace antecipe_kanastra.Domain.Service;
+namespace antecipe_kanastra.Domain.Aggregates;
 
-public sealed class ValidadorContexto
+public sealed class Validacao
 {
-    private readonly IReadOnlyList<IValidator> _validadores;
+    private readonly IReadOnlyList<IValidador> _validadores;
 
-    public ValidadorContexto(IEnumerable<IValidator> validadores)
+    public Validacao(IEnumerable<IValidador> validadores)
     {
         _validadores = validadores.Where(v => v.Ativo).ToList();
     }
@@ -16,7 +16,7 @@ public sealed class ValidadorContexto
     {
         foreach (var validador in _validadores)
         {
-            if (!validador.IsValid(parametros))
+            if (!validador.Validar(parametros))
             {
                 return false;
             }
@@ -28,7 +28,7 @@ public sealed class ValidadorContexto
     public IReadOnlyList<(string Codigo, bool Valido)> ValidarDetalhado(List<Parametros> parametros)
     {
         return _validadores
-            .Select(v => (v.Codigo, v.IsValid(parametros)))
+            .Select(v => (v.Codigo, v.Validar(parametros)))
             .ToList();
     }
 }

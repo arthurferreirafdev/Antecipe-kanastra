@@ -8,30 +8,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="819f8dd7-1384-4fed-ac69-4c69e4e845dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Abstract/IValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/ValidadorContexto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/ValidadorFactory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/CnpjSacadoValidoValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/ConcentracaoMaximaCedenteValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/ConcentracaoMaximaSacadoValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/NaoVencidaValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/PrazoMaximoValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/PrazoMinimoValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/SituacaoCadastralSacadoValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/TipoRecebivelValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/ValidatorBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Service/Validators/ValorMinimoValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Aggregates/ValidatorsConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/Domain/Aggregates/ValidatorsConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Domain/Services/Validadores/ValidadorBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/Domain/Services/Validadores/ValidadorBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/antecipe-kanastra.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/antecipe-kanastra.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.runtimeconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GlobalUsings.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/ref/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/ref/antecipe-kanastra.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/refint/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/refint/antecipe-kanastra.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/validators.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,30 +58,30 @@
     <setting file="file://$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3L8qSM4j1Su6QCGjcDdNsrDzi6V" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "feat/validators",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/validators&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.antecipe-kanastra">
     <configuration name="antecipe-kanastra" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -102,11 +105,17 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration name="antecipe-kanastra/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
@@ -204,7 +213,23 @@
       <option name="project" value="LOCAL" />
       <updated>1792848872463</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gitignore">
+      <option name="closed" value="true" />
+      <created>1792851128593</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1792851128593</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ignore files">
+      <option name="closed" value="true" />
+      <created>1792851282692</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1792851282692</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +256,9 @@
     <MESSAGE value="feat: validators enum and obj class" />
     <MESSAGE value="feat: ignore files" />
     <MESSAGE value="feat: validators" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: validators" />
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="ignore files" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignore files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

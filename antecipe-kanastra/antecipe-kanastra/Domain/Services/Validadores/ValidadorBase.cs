@@ -59,10 +59,28 @@ public abstract class ValidadorBase : IValidador
     }
 
     protected static bool TentarConverterDecimal(string? texto, out decimal valor)
-        => decimal.TryParse(texto, NumberStyles.Number, CultureInfo.InvariantCulture, out valor) ||
-           decimal.TryParse(texto, NumberStyles.Number, CultureInfo.GetCultureInfo("pt-BR"), out valor);
+    {
+        valor = 0m;
+        if (string.IsNullOrWhiteSpace(texto)) return false;
+
+        var normalizado = texto.Trim();
+        var ptBr = CultureInfo.GetCultureInfo("pt-BR");
+
+        if (!normalizado.Contains(','))
+        {
+            return decimal.TryParse(normalizado, NumberStyles.Number, CultureInfo.InvariantCulture, out valor);
+        }
+
+        var cultura = CultureInfo.InvariantCulture;
+        if (!normalizado.Contains('.') || normalizado.LastIndexOf(',') > normalizado.LastIndexOf('.'))
+        {
+            cultura = ptBr;
+        }
+
+        return decimal.TryParse(normalizado, NumberStyles.Number, cultura, out valor);
+    }
 
     protected static bool TentarConverterData(string? texto, out DateTime data)
-        => DateTime.TryParse(texto, CultureInfo.InvariantCulture, DateTimeStyles.None, out data) ||
-           DateTime.TryParse(texto, CultureInfo.GetCultureInfo("pt-BR"), DateTimeStyles.None, out data);
+        => DateTime.TryParse(texto, CultureInfo.GetCultureInfo("pt-BR"), DateTimeStyles.None, out data) ||
+           DateTime.TryParse(texto, CultureInfo.InvariantCulture, DateTimeStyles.None, out data);
 }

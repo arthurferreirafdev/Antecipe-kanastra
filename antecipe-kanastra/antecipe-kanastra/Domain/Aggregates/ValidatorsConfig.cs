@@ -27,13 +27,13 @@ public sealed class FundoConfig
 public sealed class ValidadorConfig
 {
     [JsonPropertyName("codigo")]
-    public string Codigo { get; init; } = string.Empty;
+    public string Codigo { get; set; } = string.Empty;
 
     [JsonPropertyName("ativo")]
-    public bool Ativo { get; init; }
+    public bool Ativo { get; set; }
 
     [JsonPropertyName("parametros")]
-    public Dictionary<string, JsonElement> Parametros { get; init; } = [];
+    public Dictionary<string, JsonElement> Parametros { get; set; } = [];
 }
 
 public sealed class PrecificacaoConfig

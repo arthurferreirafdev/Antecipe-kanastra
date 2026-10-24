@@ -13,3 +13,16 @@
 /Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.pdb
 /Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.genruntimeconfig.cache
 /Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/ref/antecipe-kanastra.dll
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/bin/Debug/net10.0/validadores_antecipe.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.staticwebassets.endpoints.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.MvcApplicationPartsAssemblyInfo.cache
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/rjimswa.dswa.cache.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/scopedcss/bundle/antecipe-kanastra.styles.css
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/staticwebassets.build.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/staticwebassets.build.json.cache
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/staticwebassets.development.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/staticwebassets.build.endpoints.json
+/Users/arthur/Documents/hackaton/Antecipe-kanastra/antecipe-kanastra/antecipe-kanastra/obj/Debug/net10.0/swae.build.ex.cache

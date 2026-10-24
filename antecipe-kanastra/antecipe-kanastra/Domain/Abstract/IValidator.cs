@@ -4,5 +4,9 @@ namespace antecipe_kanastra.Domain.Abstract;
 
 public interface IValidator
 {
-    bool IsValid(string Codigo, List<Parametros> Parametros, bool Ativo);
+    string Codigo { get; }
+
+    bool Ativo { get; }
+
+    bool IsValid(List<Parametros> Parametros);
 }

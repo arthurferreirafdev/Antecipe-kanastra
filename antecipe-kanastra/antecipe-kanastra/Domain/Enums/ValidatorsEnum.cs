@@ -15,5 +15,8 @@ public enum ValidatorsEnum
     TipoRecebivel,
     ValorNominal,
     DataVencimentoOriginal,
-    DataAquisicao
+    DataAquisicao,
+    SituacaoCadastralSacado,
+    ConcentracaoSacado,
+    ConcentracaoCedente
 }

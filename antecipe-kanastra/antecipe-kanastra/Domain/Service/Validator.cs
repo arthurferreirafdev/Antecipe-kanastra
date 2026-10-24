@@ -1,13 +1,19 @@
 using antecipe_kanastra.Domain.Abstract;
 using antecipe_kanastra.Domain.Aggregates;
-using antecipe_kanastra.Domain.Enums;
 
 namespace antecipe_kanastra.Domain.Service;
 
-public class Validator : IValidator
+public class Validator
 {
-    public bool IsValid(string Codigo, List<Parametros> Parametros, bool Ativo)
+    private readonly ValidadorContexto _contexto;
+
+    public Validator(ValidadorContexto contexto)
     {
-        return false;
+        _contexto = contexto;
+    }
+
+    public bool IsValid(List<Parametros> parametros)
+    {
+        return _contexto.Validar(parametros);
     }
 }

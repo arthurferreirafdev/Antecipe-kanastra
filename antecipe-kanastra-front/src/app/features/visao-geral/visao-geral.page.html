@@ -1,0 +1,121 @@
+<section class="page intro">
+  <p class="eyebrow rise">{{ dia }}</p>
+  <h1 class="intro__titulo display rise rise-1">{{ saudacao }}.</h1>
+  <p class="intro__lede rise rise-2">
+    Transforme vendas a prazo em caixa hoje. Envie suas notas, veja quanto recebe e entenda cada decisão do fundo.
+  </p>
+</section>
+
+@if (resumo(); as r) {
+  <section class="page" aria-labelledby="disponivel-titulo">
+    <div class="painel rise rise-2">
+      <div class="painel__principal">
+        <p class="eyebrow eyebrow--inverso" id="disponivel-titulo">Disponível para antecipação</p>
+        <app-money class="painel__valor" [valor]="r.valorLiquido" tamanho="hero" [animar]="true" />
+        <p class="painel__sub">
+          @if (r.aprovadas === 1) {
+            Valor líquido estimado para a nota elegível, de {{ r.valorNominalElegivel | brl }} em valor de face.
+          } @else {
+            Valor líquido estimado para {{ r.aprovadas | inteiro }} notas elegíveis, que somam {{ r.valorNominalElegivel | brl }} em valor de face.
+          }
+        </p>
+        <div class="painel__acoes">
+          <a class="btn btn--inverse btn--lg" routerLink="/nova-antecipacao">
+            Nova antecipação <svg lucideArrowRight class="btn__arrow" aria-hidden="true"></svg>
+          </a>
+          <a class="painel__link" routerLink="/analise">Ver análise completa <svg lucideArrowUpRight aria-hidden="true"></svg></a>
+        </div>
+      </div>
+
+      <dl class="painel__numeros">
+        <div>
+          <dt>Notas elegíveis</dt>
+          <dd><span class="num">{{ r.aprovadas | inteiro }}</span> <span class="de">de {{ r.total | inteiro }}</span></dd>
+        </div>
+        <div>
+          <dt>Notas recusadas</dt>
+          <dd><span class="num">{{ r.recusadas | inteiro }}</span></dd>
+        </div>
+        <div>
+          <dt>Elegibilidade</dt>
+          <dd><span class="num">{{ r.percentualElegibilidade | pct: 0 }}</span></dd>
+        </div>
+      </dl>
+
+      <div class="painel__barra">
+        <app-composicao-bar [segmentos]="segmentos()" [inverso]="true" />
+      </div>
+
+      <p class="painel__meta">
+        Última análise · {{ analise()?.arquivoNome }} · {{ quando() }} · Simulação — nenhuma nota foi cedida ao fundo.
+      </p>
+    </div>
+  </section>
+
+  @if (principaisMotivos().length) {
+    <section class="page motivos rise rise-3" aria-labelledby="motivos-titulo">
+      <header class="secao-cabecalho">
+        <h2 id="motivos-titulo" class="secao-titulo">Por que algumas notas ficaram de fora</h2>
+        <a class="link" routerLink="/analise">Ver todas <svg lucideArrowRight aria-hidden="true"></svg></a>
+      </header>
+      <ul class="motivos__lista">
+        @for (m of principaisMotivos(); track m.codigo) {
+          <li>
+            <a class="motivo" routerLink="/analise" [queryParams]="{ motivo: m.codigo }">
+              <svg class="motivo__icone" [lucideIcon]="m.icone" aria-hidden="true"></svg>
+              <span class="motivo__titulo">{{ m.titulo }}</span>
+              <span class="motivo__qtd">{{ m.quantidade | inteiro }} {{ m.quantidade === 1 ? 'nota' : 'notas' }}</span>
+              <span class="motivo__valor">{{ m.valorNominal | brl }}</span>
+              <svg class="motivo__seta" lucideArrowRight aria-hidden="true"></svg>
+            </a>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+} @else {
+  <section class="page" aria-labelledby="vazio-titulo">
+    <div class="painel painel--vazio rise rise-2">
+      <div class="painel__principal">
+        <p class="eyebrow eyebrow--inverso">Nenhuma análise por aqui ainda</p>
+        <h2 id="vazio-titulo" class="painel__chamada display">Descubra hoje quanto suas notas valem.</h2>
+        <p class="painel__sub">
+          Envie um arquivo CSV com seus recebíveis. Em segundos, o fundo mostra quais notas pode antecipar, quanto você recebe e o
+          motivo de cada recusa.
+        </p>
+        <div class="painel__acoes">
+          <a class="btn btn--inverse btn--lg" routerLink="/nova-antecipacao">
+            Nova antecipação <svg lucideArrowRight class="btn__arrow" aria-hidden="true"></svg>
+          </a>
+        </div>
+      </div>
+      <div class="painel__arte" aria-hidden="true">
+        <span style="--h: 28%"></span>
+        <span style="--h: 46%"></span>
+        <span style="--h: 64%"></span>
+        <span style="--h: 88%"></span>
+      </div>
+    </div>
+  </section>
+}
+
+<section class="page passos rise rise-4" aria-labelledby="passos-titulo">
+  <h2 id="passos-titulo" class="secao-titulo">Como funciona</h2>
+  <ol class="passos__lista">
+    <li>
+      <span class="passos__num">01</span>
+      <h3>Envie suas notas</h3>
+      <p>Um arquivo CSV com as duplicatas que você quer antecipar. Há um modelo pronto para baixar.</p>
+    </li>
+    <li>
+      <span class="passos__num">02</span>
+      <h3>O fundo analisa cada uma</h3>
+      <p>Prazo, valor, cadastro do cliente, duplicidade e limites da carteira são verificados nota a nota.</p>
+    </li>
+    <li>
+      <span class="passos__num">03</span>
+      <h3>Veja quanto recebe e por quê</h3>
+      <p>O valor líquido de cada nota aprovada e uma explicação clara para cada recusa, com o que fazer a seguir.</p>
+    </li>
+  </ol>
+</section>

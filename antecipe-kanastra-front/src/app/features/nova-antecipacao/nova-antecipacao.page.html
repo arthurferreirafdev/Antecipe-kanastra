@@ -1,0 +1,245 @@
+<div class="page layout">
+  <!-- Coluna editorial: o que enviar e como -->
+  <section class="guia" aria-labelledby="titulo">
+    <p class="eyebrow rise">Nova antecipação</p>
+    <h1 id="titulo" class="guia__titulo display rise rise-1">Envie suas notas.</h1>
+    <p class="guia__lede rise rise-2">
+      Um único arquivo CSV com os recebíveis que você quer antecipar. O fundo analisa cada nota e mostra, em segundos, quanto você recebe.
+    </p>
+
+    <ul class="formato rise rise-3" aria-label="Formato do arquivo">
+      <li><span class="formato__k">Separador</span><span class="formato__v">ponto e vírgula <code>;</code></span></li>
+      <li><span class="formato__k">Valores</span><span class="formato__v">vírgula nos centavos, sem ponto de milhar — <code>1250,90</code></span></li>
+      <li><span class="formato__k">Datas</span><span class="formato__v">dia/mês/ano — <code>15/01/2027</code></span></li>
+      <li><span class="formato__k">Codificação</span><span class="formato__v">UTF-8</span></li>
+    </ul>
+
+    <figure class="exemplo rise rise-4">
+      <figcaption class="exemplo__legenda">
+        <span>Layout esperado</span>
+        <a class="link" href="modelo/notas_exemplo.csv" download="notas_exemplo.csv">
+          <svg lucideDownload aria-hidden="true"></svg> Baixar CSV de exemplo
+        </a>
+      </figcaption>
+      <div class="exemplo__codigo" tabindex="0" role="region" aria-label="Exemplo de cabeçalho e linha do CSV">
+        <pre><code><span class="exemplo__cab">{{ colunas.join(';') }}</span>
+{{ exemplo }}</code></pre>
+      </div>
+    </figure>
+  </section>
+
+  <!-- Coluna de ação -->
+  <section class="acao" aria-label="Envio do arquivo">
+    <input #seletor class="sr-only" type="file" accept=".csv,text/csv" tabindex="-1" aria-hidden="true" (change)="aoEscolher($event)" />
+
+    <div
+      class="zona"
+      [class.zona--arrastando]="arrastando()"
+      [class.zona--preenchida]="rascunho() !== null"
+      [class.zona--bloqueada]="enviando()"
+      (dragover)="aoArrastar($event)"
+      (dragenter)="aoArrastar($event)"
+      (dragleave)="aoSair($event)"
+      (drop)="aoSoltar($event)"
+    >
+      @if (lendo()) {
+        <div class="zona__lendo" aria-busy="true">
+          <app-skeleton largura="40%" altura="18px" />
+          <app-skeleton largura="70%" />
+          <app-skeleton largura="55%" />
+          <span class="sr-only" role="status">Lendo o arquivo…</span>
+        </div>
+      } @else if (rascunho(); as r) {
+        <div class="arquivo">
+          <svg class="arquivo__icone" lucideFileSpreadsheet aria-hidden="true"></svg>
+          <div class="arquivo__info">
+            <p class="arquivo__nome">{{ r.arquivo.name }}</p>
+            <p class="arquivo__meta">{{ tamanho() }} · {{ conferencia().quantidade | inteiro }} {{ conferencia().quantidade === 1 ? 'nota encontrada' : 'notas encontradas' }}</p>
+          </div>
+          <div class="arquivo__acoes">
+            <button type="button" class="btn btn--ghost btn--sm" (click)="abrirSeletor()" [disabled]="enviando()">Trocar</button>
+            <button type="button" class="icon-btn" (click)="remover()" [disabled]="enviando()" aria-label="Remover arquivo">
+              <svg lucideX aria-hidden="true"></svg>
+            </button>
+          </div>
+        </div>
+      } @else {
+        <div class="zona__vazia">
+          <span class="zona__icone" aria-hidden="true"><svg lucideUpload></svg></span>
+          <p class="zona__titulo">Arraste o arquivo CSV para cá</p>
+          <p class="zona__sub">ou</p>
+          <button type="button" class="btn btn--primary" (click)="abrirSeletor()">Selecionar no computador</button>
+          <p class="zona__dica">Até 30 MB · somente .csv</p>
+        </div>
+      }
+      @if (arrastando()) {
+        <div class="zona__soltar" aria-hidden="true">Solte para carregar</div>
+      }
+    </div>
+
+    <div aria-live="polite" class="sr-only">
+      @if (rascunho(); as r) {
+        Arquivo {{ r.arquivo.name }} carregado com {{ conferencia().quantidade }} notas.
+      }
+    </div>
+
+    @if (problemaArquivo(); as p) {
+      <div class="alerta alerta--erro rise" role="alert">
+        <svg lucideCircleAlert aria-hidden="true"></svg>
+        <p>{{ p.mensagem }}</p>
+      </div>
+    }
+
+    @if (rascunho(); as r) {
+      @if (r.avisoCodificacao; as aviso) {
+        <div class="alerta alerta--aviso rise">
+          <svg lucideInfo aria-hidden="true"></svg>
+          <p>{{ aviso.mensagem }}</p>
+        </div>
+      }
+
+      @if (erros().length) {
+        <div class="problemas rise" role="alert" aria-labelledby="problemas-titulo">
+          <h2 id="problemas-titulo" class="problemas__titulo">
+            <svg lucideCircleAlert aria-hidden="true"></svg>
+            {{ erros().length === 1 ? 'Encontramos um problema no arquivo' : 'Encontramos ' + erros().length + ' problemas no arquivo' }}
+          </h2>
+          <p class="problemas__sub">O servidor recusaria o arquivo assim. Corrija e carregue de novo:</p>
+          <ul>
+            @for (p of erros(); track $index) {
+              <li>{{ p.mensagem }}</li>
+            }
+          </ul>
+          <label class="problemas__ignorar">
+            <input type="checkbox" [checked]="ignorarErros()" (change)="ignorarErros.set($any($event.target).checked)" />
+            Enviar mesmo assim e deixar o servidor validar
+          </label>
+        </div>
+      }
+
+      @if (previa().length) {
+        <dl class="conferencia rise">
+          <div>
+            <dt>Notas</dt>
+            <dd>{{ conferencia().quantidade | inteiro }}</dd>
+          </div>
+          <div>
+            <dt>Valor de face</dt>
+            <dd>{{ conferencia().valorFace | brl }}</dd>
+          </div>
+          <div>
+            <dt>Vencimentos</dt>
+            <dd>{{ conferencia().primeiroVencimento | dataBr }} – {{ conferencia().ultimoVencimento | dataBr }}</dd>
+          </div>
+          <div>
+            <dt>Clientes</dt>
+            <dd>{{ conferencia().sacados | inteiro }}</dd>
+          </div>
+        </dl>
+
+        <div class="previa rise">
+          <p class="previa__titulo">
+            Prévia
+            <span class="muted">· {{ previa().length }} de {{ conferencia().quantidade | inteiro }} notas</span>
+          </p>
+          <div class="previa__rolagem" tabindex="0" role="region" aria-label="Prévia das notas do arquivo">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Documento</th>
+                  <th scope="col">Sacado</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col" class="num">Valor</th>
+                  <th scope="col" class="num">Vencimento</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (l of previa(); track l.linha) {
+                  <tr>
+                    <td class="mono">{{ l.numeroDocumento }}</td>
+                    <td>
+                      <span class="previa__nome">{{ l.nomeSacado }}</span>
+                      <span class="previa__doc">{{ l.docSacado | cnpj }}</span>
+                    </td>
+                    <td>{{ l.tipoRecebivel }}</td>
+                    <td class="num">{{ l.valorNominal | brl }}</td>
+                    <td class="num">{{ l.dataVencimento | dataBr }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+
+      <div class="envio" [class.envio--ativo]="enviando()">
+        @if (enviando()) {
+          <div class="envio__progresso" aria-hidden="true"><span></span></div>
+        }
+        <button type="button" class="btn btn--primary btn--lg envio__botao" (click)="analisar()" [disabled]="!podeEnviar()" [attr.aria-busy]="enviando()">
+          @if (enviando()) {
+            <svg lucideLoaderCircle class="spin" aria-hidden="true"></svg> Analisando…
+          } @else {
+            Analisar {{ conferencia().quantidade > 0 ? (conferencia().quantidade | inteiro) : '' }}
+            {{ conferencia().quantidade === 1 ? 'nota' : 'notas' }}
+            <svg lucideArrowRight class="btn__arrow" aria-hidden="true"></svg>
+          }
+        </button>
+        <p class="envio__nota" role="status">
+          @if (enviando()) {
+            Aplicando as regras do fundo a cada nota. Isso costuma levar poucos segundos.
+          } @else {
+            É uma simulação: nenhuma nota é cedida ao fundo nesta etapa.
+          }
+        </p>
+      </div>
+    }
+
+    @if (erroApi(); as e) {
+      <div class="falha rise" role="alert" tabindex="-1" #painelErro>
+        <div class="falha__topo">
+          <svg [lucideIcon]="e.tipo === 'rede' ? lucideWifiOff : lucideCircleAlert" aria-hidden="true"></svg>
+          <div>
+            <h2 class="falha__titulo">{{ e.titulo }}</h2>
+            <p class="falha__texto">{{ e.descricao }}</p>
+          </div>
+        </div>
+
+        @if (pendencias().length) {
+          <ul class="falha__pendencias">
+            @for (p of pendencias(); track p.numeroDocumento) {
+              <li>
+                <span class="mono">{{ p.numeroDocumento }}</span>
+                @for (m of p.motivos; track m.codigo) {
+                  <span class="muted">{{ m.mensagemTecnica }}</span>
+                }
+              </li>
+            }
+          </ul>
+        }
+
+        <div class="falha__acoes">
+          @if (e.temporario && rascunho()) {
+            <button type="button" class="btn btn--primary" (click)="analisar()" [disabled]="enviando()">
+              <svg lucideRotateCcw aria-hidden="true"></svg> Tentar novamente
+            </button>
+          }
+          <button type="button" class="btn" (click)="abrirSeletor()">Escolher outro arquivo</button>
+        </div>
+
+        @if (e.detalheTecnico) {
+          <details class="tecnico">
+            <summary>Detalhes técnicos</summary>
+            <code>{{ e.detalheTecnico }}</code>
+          </details>
+        }
+      </div>
+    }
+
+    @if (temAnalise() && !rascunho()) {
+      <p class="ultima">
+        Você já tem uma análise recente. <a class="link" routerLink="/analise">Ver resultado</a>
+      </p>
+    }
+  </section>
+</div>

@@ -1,0 +1,348 @@
+@use 'mixins' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-3) var(--s-3) var(--s-5);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.topo__status {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.topo__linha {
+  color: var(--c-ink-3);
+  font-size: var(--t-xs);
+}
+
+.corpo {
+  flex: 1;
+  min-height: 0;
+  padding: var(--s-6) var(--s-5) var(--s-7);
+  overflow-y: auto;
+  outline: none;
+  overscroll-behavior: contain;
+}
+
+.doc {
+  margin-top: var(--s-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xl);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--c-forest-900);
+  word-break: break-all;
+}
+
+.resumo {
+  margin-top: var(--s-1);
+  color: var(--c-ink-2);
+}
+
+// ---------------------------------------------------------------- bloco principal
+
+.bloco {
+  margin-top: var(--s-5);
+  padding: var(--s-5);
+  border-radius: var(--r-sm);
+  background: var(--c-refused-bg);
+  animation: rise-in var(--dur-slow) var(--ease-out) both;
+
+  &--aprovada {
+    background: var(--c-forest-900);
+    color: var(--c-cream);
+
+    .eyebrow {
+      color: var(--c-mint-300);
+    }
+
+    app-money {
+      margin-top: var(--s-3);
+    }
+  }
+
+  &--pendente {
+    background: var(--c-pending-bg);
+
+    .recusa__titulo {
+      color: var(--c-pending);
+    }
+  }
+}
+
+.conta {
+  margin-top: var(--s-5);
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-4);
+    padding: var(--s-2) 0;
+    border-top: 1px solid rgba(248, 241, 224, 0.14);
+    font-size: var(--t-sm);
+  }
+
+  dt {
+    color: var(--c-ink-inverse-2);
+  }
+
+  dd {
+    @include figures;
+    white-space: nowrap;
+  }
+}
+
+.conta__pct {
+  display: block;
+  font-size: var(--t-xs);
+  opacity: 0.8;
+}
+
+.conta__total {
+  font-weight: 650;
+
+  dt {
+    color: var(--c-cream) !important;
+  }
+}
+
+.regras-ok {
+  display: flex;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+  color: var(--c-mint-300);
+  font-size: var(--t-sm);
+
+  svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+  }
+}
+
+.recusa__titulo {
+  font-family: var(--f-display);
+  font-stretch: 112%;
+  font-size: var(--t-lg);
+  letter-spacing: -0.015em;
+  color: var(--c-refused);
+}
+
+.recusa__lede {
+  margin-top: var(--s-2);
+  color: var(--c-ink);
+  font-size: var(--t-md);
+  line-height: 1.5;
+}
+
+.recusa__qtd {
+  margin-top: var(--s-3);
+  color: var(--c-ink-2);
+  font-size: var(--t-sm);
+}
+
+// ---------------------------------------------------------------- motivos
+
+.motivos {
+  display: grid;
+  gap: var(--s-3);
+  margin: var(--s-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.motivo {
+  padding: var(--s-4) var(--s-5) var(--s-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-sm);
+  background: var(--c-surface-raised);
+  animation: rise-in var(--dur-slow) var(--ease-out) both;
+}
+
+.motivo__cab {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.motivo__icone {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+  background: var(--c-refused-bg);
+  color: var(--c-refused);
+
+  svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 1.7;
+  }
+}
+
+.motivo__titulo {
+  font-size: var(--t-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.motivo__texto {
+  margin-top: var(--s-3);
+  color: var(--c-ink-2);
+  font-size: var(--t-sm);
+}
+
+.motivo__detalhes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  margin-top: var(--s-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-sm);
+  background: var(--c-line);
+  overflow: hidden;
+
+  > div {
+    padding: var(--s-3);
+    background: var(--c-surface);
+  }
+
+  dt {
+    color: var(--c-ink-3);
+    font-size: var(--t-xs);
+  }
+
+  dd {
+    margin-top: 2px;
+    font-family: var(--f-display);
+    font-stretch: 112%;
+    font-size: var(--t-md);
+    @include figures;
+  }
+
+  .destaque dd {
+    color: var(--c-refused);
+    font-weight: 550;
+  }
+}
+
+.motivo__fazer {
+  margin-top: var(--s-4);
+  padding-left: var(--s-3);
+  border-left: 2px solid var(--c-emerald-600);
+  font-size: var(--t-sm);
+}
+
+.motivo__fazer-rotulo {
+  @include eyebrow;
+  font-size: var(--t-2xs);
+  color: var(--c-forest-800);
+}
+
+.tecnico {
+  margin-top: var(--s-4);
+  font-size: var(--t-xs);
+  color: var(--c-ink-3);
+
+  summary {
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-1) var(--s-3);
+    margin-top: var(--s-2);
+    padding: var(--s-2) var(--s-3);
+    border-radius: var(--r-xs);
+    background: var(--c-paper);
+  }
+
+  code {
+    font-family: var(--f-mono);
+  }
+}
+
+// ---------------------------------------------------------------- dados
+
+.dados {
+  margin-top: var(--s-6);
+}
+
+.dados__titulo {
+  @include eyebrow;
+  color: var(--c-ink-3);
+}
+
+.dados__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--s-3);
+  border-top: 1px solid var(--c-line);
+
+  > div {
+    padding: var(--s-3) var(--s-3) var(--s-3) 0;
+    border-bottom: 1px solid var(--c-line);
+  }
+
+  .largo {
+    grid-column: 1 / -1;
+  }
+
+  dt {
+    color: var(--c-ink-3);
+    font-size: var(--t-xs);
+  }
+
+  dd {
+    margin-top: 2px;
+    font-weight: 500;
+    @include figures;
+  }
+}
+
+.doc-num {
+  display: block;
+  color: var(--c-ink-3);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+}
+
+.dados__aviso {
+  margin-top: var(--s-3);
+  font-size: var(--t-sm);
+}
+
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  border-top: 1px solid var(--c-line);
+  background: var(--c-surface);
+}
+
+.rodape__pos {
+  color: var(--c-ink-3);
+  font-size: var(--t-sm);
+  @include figures;
+}

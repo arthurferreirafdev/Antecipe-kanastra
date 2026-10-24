@@ -1,0 +1,336 @@
+@use 'mixins' as *;
+
+:host {
+  display: block;
+}
+
+.intro {
+  padding-top: clamp(var(--s-7), 8vw, var(--s-9));
+  padding-bottom: var(--s-7);
+}
+
+.intro__titulo {
+  margin-top: var(--s-3);
+  font-size: var(--t-3xl);
+  color: var(--c-forest-900);
+}
+
+.intro__lede {
+  max-width: 52ch;
+  margin-top: var(--s-4);
+  font-size: var(--t-md);
+  color: var(--c-ink-2);
+}
+
+// ---------------------------------------------------------------- painel principal
+
+.painel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-6);
+  padding: clamp(var(--s-5), 4vw, var(--s-8));
+  border-radius: var(--r-md);
+  background: var(--c-forest-900);
+  color: var(--c-ink-inverse);
+  overflow: hidden;
+  isolation: isolate;
+
+  // textura sutil: grade de linhas muito fina, evocando papel milimetrado
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(120% 90% at 100% 0%, rgba(143, 220, 184, 0.14), transparent 60%),
+      repeating-linear-gradient(90deg, rgba(248, 241, 224, 0.035) 0 1px, transparent 1px 96px);
+  }
+
+  @include up($bp-md) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    column-gap: var(--s-8);
+  }
+}
+
+.eyebrow--inverso {
+  color: var(--c-mint-300);
+}
+
+.painel__valor {
+  margin-top: var(--s-4);
+  color: var(--c-cream);
+}
+
+.painel__sub {
+  max-width: 46ch;
+  margin-top: var(--s-4);
+  color: var(--c-ink-inverse-2);
+  font-size: var(--t-md);
+}
+
+.painel__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4) var(--s-5);
+  margin-top: var(--s-6);
+}
+
+.painel__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-cream);
+  font-weight: 550;
+  text-decoration: underline;
+  text-decoration-color: rgba(248, 241, 224, 0.35);
+  text-underline-offset: 5px;
+  transition: text-decoration-color var(--dur-fast) var(--ease-out);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+.painel__numeros {
+  display: grid;
+  align-content: end;
+  gap: 0;
+
+  > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-4) 0;
+    border-top: 1px solid rgba(248, 241, 224, 0.14);
+  }
+
+  dt {
+    color: var(--c-ink-inverse-2);
+    font-size: var(--t-sm);
+  }
+
+  dd {
+    @include figures;
+    text-align: right;
+  }
+
+  .num {
+    font-family: var(--f-display);
+    font-stretch: 125%;
+    font-size: var(--t-xl);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--c-cream);
+  }
+
+  .de {
+    margin-left: 6px;
+    color: var(--c-ink-inverse-2);
+    font-size: var(--t-sm);
+  }
+}
+
+.painel__barra,
+.painel__meta {
+  grid-column: 1 / -1;
+}
+
+.painel__meta {
+  margin-top: calc(-1 * var(--s-2));
+  color: var(--c-ink-inverse-2);
+  font-size: var(--t-xs);
+}
+
+// estado vazio
+.painel--vazio {
+  min-height: 380px;
+}
+
+.painel__chamada {
+  max-width: 14ch;
+  margin-top: var(--s-4);
+  font-size: var(--t-3xl);
+  color: var(--c-cream);
+}
+
+.painel__arte {
+  display: none;
+
+  @include up($bp-md) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 14px;
+    height: 100%;
+    min-height: 260px;
+  }
+
+  span {
+    width: 38px;
+    height: var(--h);
+    border-radius: 2px 2px 0 0;
+    background: linear-gradient(180deg, var(--c-mint-300), rgba(143, 220, 184, 0.15));
+    transform-origin: bottom;
+    animation: subir 900ms var(--ease-out) both;
+
+    &:nth-child(2) {
+      animation-delay: 90ms;
+    }
+    &:nth-child(3) {
+      animation-delay: 180ms;
+    }
+    &:nth-child(4) {
+      animation-delay: 270ms;
+      background: linear-gradient(180deg, var(--c-cream), rgba(248, 241, 224, 0.2));
+    }
+  }
+}
+
+@keyframes subir {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+// ---------------------------------------------------------------- seções
+
+.secao-cabecalho {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.secao-titulo {
+  font-family: var(--f-display);
+  font-stretch: 112%;
+  font-size: var(--t-lg);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--c-forest-900);
+}
+
+.motivos {
+  margin-top: var(--s-8);
+}
+
+.motivos__lista {
+  margin: var(--s-4) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--c-line);
+}
+
+.motivo {
+  display: grid;
+  grid-template-columns: 22px 1fr auto 18px;
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+  padding: var(--s-4) var(--s-2);
+  border-bottom: 1px solid var(--c-line);
+  text-decoration: none;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    padding var(--dur) var(--ease-out);
+
+  @include up($bp-sm) {
+    grid-template-columns: 22px 1fr 120px 140px 18px;
+  }
+
+  &:hover {
+    background: var(--c-surface);
+    padding-inline: var(--s-4);
+
+    .motivo__seta {
+      transform: translateX(3px);
+      opacity: 1;
+    }
+  }
+}
+
+.motivo__icone {
+  width: 20px;
+  height: 20px;
+  color: var(--c-refused);
+  stroke-width: 1.6;
+}
+
+.motivo__titulo {
+  font-weight: 550;
+}
+
+.motivo__qtd {
+  color: var(--c-ink-3);
+  font-size: var(--t-sm);
+  text-align: right;
+}
+
+.motivo__valor {
+  display: none;
+  @include figures;
+  text-align: right;
+  font-size: var(--t-sm);
+  color: var(--c-ink-2);
+
+  @include up($bp-sm) {
+    display: block;
+  }
+}
+
+.motivo__seta {
+  width: 18px;
+  height: 18px;
+  opacity: 0.4;
+  transition:
+    transform var(--dur) var(--ease-out),
+    opacity var(--dur) var(--ease-out);
+}
+
+.passos {
+  margin-top: var(--s-8);
+}
+
+.passos__lista {
+  display: grid;
+  gap: var(--s-5);
+  margin: var(--s-5) 0 0;
+  padding: 0;
+  list-style: none;
+
+  @include up($bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-6);
+  }
+
+  li {
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--c-ink);
+  }
+
+  h3 {
+    margin-top: var(--s-4);
+    font-size: var(--t-md);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin-top: var(--s-2);
+    color: var(--c-ink-2);
+    max-width: 36ch;
+  }
+}
+
+.passos__num {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--c-ink-3);
+}

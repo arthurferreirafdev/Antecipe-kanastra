@@ -7,27 +7,23 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="819f8dd7-1384-4fed-ac69-4c69e4e845dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../antecipe-kanastra-back/antecipe-kanastra-back/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../antecipe-kanastra-back/antecipe-kanastra-back/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.antecipe-kanastra/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra.sln" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/bin/Debug/net10.0/antecipe-kanastra.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/antecipe-kanastra.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/apphost" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/apphost" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/ref/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/ref/antecipe-kanastra.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/refint/antecipe-kanastra.dll" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/Debug/net10.0/refint/antecipe-kanastra.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/antecipe-kanastra.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" afterDir="false" />
@@ -35,7 +31,7 @@
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/antecipe-kanastra/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../historic.MD" beforeDir="false" afterPath="$PROJECT_DIR$/../historic.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +57,70 @@
     <setting file="file://$PROJECT_DIR$/antecipe-kanastra/obj/project.assets.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/antecipe-kanastra/obj/project.packagespec.json" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000000000036" />
+      <entry key="MS500" value="1.0027548041571532" />
+      <entry key="S2" value="2.1044154926408445" />
+      <entry key="S5" value="6.726415185284079" />
+      <entry key="S10" value="11.918294708378541" />
+      <entry key="S30" value="18.312161526587392" />
+      <entry key="S60" value="20.501168977009257" />
+      <entry key="M2" value="21.70906847802018" />
+      <entry key="M5" value="22.473293323685418" />
+      <entry key="M10" value="22.75227936286325" />
+      <entry key="M15" value="23.026712742601465" />
+      <entry key="M30" value="25.30025657312317" />
+      <entry key="H1" value="31.134294293825125" />
+      <entry key="H2" value="38.1106311948328" />
+      <entry key="H4" value="43.57333443288856" />
+      <entry key="D1" value="49.59854953691173" />
+      <entry key="W1" value="50.795372024928895" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9330329915368105" />
+      <entry key="MS500" value="0.9889270797316349" />
+      <entry key="S2" value="2.0953910296121827" />
+      <entry key="S5" value="6.713672707356019" />
+      <entry key="S10" value="11.906879137631574" />
+      <entry key="S30" value="18.30630701920303" />
+      <entry key="S60" value="20.49789275709858" />
+      <entry key="M2" value="21.707334248810458" />
+      <entry key="M5" value="22.472575328180408" />
+      <entry key="M10" value="22.751915763748855" />
+      <entry key="M15" value="23.026466255305476" />
+      <entry key="M30" value="25.300114453064364" />
+      <entry key="H1" value="31.134198797919353" />
+      <entry key="H2" value="38.110568835383475" />
+      <entry key="H4" value="43.57329753476647" />
+      <entry key="D1" value="49.59854233637436" />
+      <entry key="W1" value="50.79537096646695" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -72,12 +131,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Project.antecipe-kanastra-back.executor": "Run",
     ".NET Project.antecipe-kanastra.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "feat/validators",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -87,7 +152,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.antecipe-kanastra">
+  <component name="RunManager" selected=".NET Project.antecipe-kanastra-back">
     <configuration name="antecipe-kanastra-back" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />

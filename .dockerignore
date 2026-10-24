@@ -2,3 +2,9 @@
 **/obj/
 **/.idea/
 .git/
+**/node_modules/
+antecipe-kanastra-front/
+*.pdf
+*.zip
+*.html
+*_files/

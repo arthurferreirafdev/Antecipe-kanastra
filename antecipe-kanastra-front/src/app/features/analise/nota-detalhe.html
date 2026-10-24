@@ -1,0 +1,135 @@
+@let n = nota();
+
+<header class="topo">
+  <div class="topo__status">
+    <app-status-badge [status]="n.status" />
+    @if (n.csv) {
+      <span class="topo__linha">Linha {{ n.csv.linha }} do arquivo</span>
+    }
+  </div>
+  <button type="button" class="icon-btn" (click)="fechar.emit()" aria-label="Fechar detalhes">
+    <svg lucideX aria-hidden="true"></svg>
+  </button>
+</header>
+
+<div class="corpo" tabindex="0">
+  <p class="eyebrow">Documento</p>
+  <h2 id="nota-titulo" class="doc">{{ n.numeroDocumento }}</h2>
+  @if (n.csv) {
+    <p class="resumo">{{ n.csv.nomeSacado }} · vence em {{ n.csv.dataVencimento | dataBr: 'media' }}</p>
+  }
+
+  @switch (n.status) {
+    @case ('APROVADA') {
+      <section class="bloco bloco--aprovada" aria-labelledby="receber-titulo">
+        <p class="eyebrow" id="receber-titulo">Você recebe</p>
+        <app-money [valor]="n.valorLiquido ?? 0" tamanho="lg" [animar]="true" />
+
+        <dl class="conta">
+          <div>
+            <dt>Valor de face</dt>
+            <dd>{{ n.valorNominal | brl }}</dd>
+          </div>
+          <div>
+            <dt>
+              Desconto da antecipação
+              @if (descontoPercentual() !== null) {
+                <span class="conta__pct">{{ descontoPercentual()! | pct: 2 }} do valor de face</span>
+              }
+            </dt>
+            <dd>− {{ n.desconto | brl }}</dd>
+          </div>
+          <div class="conta__total">
+            <dt>Valor líquido</dt>
+            <dd>{{ n.valorLiquido | brl }}</dd>
+          </div>
+        </dl>
+
+        <p class="regras-ok">
+          <svg lucideCircleCheck aria-hidden="true"></svg>
+          <span>Esta nota atendeu a todas as regras ativas do fundo e pode ser antecipada.</span>
+        </p>
+      </section>
+    }
+    @default {
+      <section class="bloco" [class.bloco--pendente]="n.status === 'PENDENTE_VALIDACAO'" aria-labelledby="recusa-titulo">
+        <h3 id="recusa-titulo" class="recusa__titulo">
+          {{ n.status === 'RECUSADA' ? 'Nota não elegível' : 'Análise não concluída' }}
+        </h3>
+        @if (motivos()[0]; as principal) {
+          <p class="recusa__lede">{{ principal.explicacao }}</p>
+        }
+        @if (motivos().length > 1) {
+          <p class="recusa__qtd">Esta nota tem {{ motivos().length }} motivos. Todos precisam ser resolvidos para que ela seja aceita.</p>
+        }
+      </section>
+
+      <ol class="motivos">
+        @for (m of motivos(); track m.codigo; let i = $index) {
+          <li class="motivo" [style.animation-delay.ms]="i * 70">
+            <div class="motivo__cab">
+              <span class="motivo__icone" aria-hidden="true"><svg [lucideIcon]="m.icone"></svg></span>
+              <h4 class="motivo__titulo">{{ m.titulo }}</h4>
+            </div>
+            @if (i > 0) {
+              <p class="motivo__texto">{{ m.explicacao }}</p>
+            }
+            @if (m.detalhes.length) {
+              <dl class="motivo__detalhes">
+                @for (d of m.detalhes; track d.rotulo) {
+                  <div [class.destaque]="d.destaque">
+                    <dt>{{ d.rotulo }}</dt>
+                    <dd>{{ d.valor }}</dd>
+                  </div>
+                }
+              </dl>
+            }
+            <div class="motivo__fazer">
+              <p class="motivo__fazer-rotulo">O que fazer</p>
+              <p>{{ m.orientacao }}</p>
+            </div>
+            <details class="tecnico">
+              <summary>Detalhes técnicos</summary>
+              <dl>
+                <dt>Regra</dt>
+                <dd><code>{{ m.codigo }}</code></dd>
+                <dt>Mensagem do sistema</dt>
+                <dd>{{ m.mensagemTecnica }}</dd>
+              </dl>
+            </details>
+          </li>
+        }
+      </ol>
+    }
+  }
+
+  <section class="dados" aria-labelledby="dados-titulo">
+    <h3 id="dados-titulo" class="dados__titulo">Dados da nota</h3>
+    @if (n.csv; as c) {
+      <dl class="dados__lista">
+        <div><dt>Tipo de recebível</dt><dd>{{ c.tipoRecebivel || '—' }}</dd></div>
+        <div><dt>Valor nominal</dt><dd>{{ n.valorNominal | brl }}</dd></div>
+        <div><dt>Vencimento</dt><dd>{{ c.dataVencimento | dataBr }}</dd></div>
+        <div><dt>Data de aquisição</dt><dd>{{ c.dataAquisicao | dataBr }}</dd></div>
+        <div class="largo"><dt>Cedente</dt><dd>{{ c.nomeCedente }}<span class="doc-num">{{ c.docCedente | cnpj }}</span></dd></div>
+        <div class="largo"><dt>Sacado</dt><dd>{{ c.nomeSacado }}<span class="doc-num">{{ c.docSacado | cnpj }}</span></dd></div>
+        <div class="largo"><dt>Fundo</dt><dd>{{ c.nomeFundo }}<span class="doc-num">{{ c.docFundo | cnpj }}</span></dd></div>
+      </dl>
+    } @else {
+      <dl class="dados__lista">
+        <div><dt>Valor nominal</dt><dd>{{ n.valorNominal | brl }}</dd></div>
+      </dl>
+      <p class="muted dados__aviso">Os demais dados do arquivo não estão disponíveis para esta nota.</p>
+    }
+  </section>
+</div>
+
+<footer class="rodape">
+  <button type="button" class="btn btn--ghost btn--sm" (click)="anterior.emit()" [disabled]="posicao() <= 1">
+    <svg lucideChevronLeft aria-hidden="true"></svg> Anterior
+  </button>
+  <span class="rodape__pos">{{ posicao() }} de {{ total() }}</span>
+  <button type="button" class="btn btn--ghost btn--sm" (click)="proxima.emit()" [disabled]="posicao() >= total()">
+    Próxima <svg lucideChevronRight aria-hidden="true"></svg>
+  </button>
+</footer>

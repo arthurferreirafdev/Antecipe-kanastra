@@ -1,0 +1,146 @@
+@use 'mixins' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pular {
+  position: absolute;
+  top: var(--s-2);
+  left: var(--s-2);
+  z-index: 100;
+  padding: var(--s-2) var(--s-4);
+  background: var(--c-forest-900);
+  color: var(--c-cream);
+  border-radius: var(--r-sm);
+  transform: translateY(-200%);
+  transition: transform var(--dur) var(--ease-out);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--c-paper) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--c-line);
+  view-transition-name: topo;
+}
+
+.topo__linha {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  min-height: var(--header-h);
+
+  @include down($bp-md) {
+    flex-wrap: wrap;
+    gap: 0 var(--s-4);
+    padding-top: var(--s-3);
+  }
+}
+
+.topo__marca {
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: var(--r-sm);
+}
+
+.topo__nav {
+  display: flex;
+  gap: var(--s-1);
+
+  @include down($bp-md) {
+    order: 3;
+    width: calc(100% + 2 * var(--page-gutter));
+    margin-inline: calc(-1 * var(--page-gutter));
+    padding: var(--s-2) var(--page-gutter) 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 var(--s-3);
+    color: var(--c-ink-3);
+    font-size: var(--t-sm);
+    font-weight: 550;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: var(--r-sm);
+    transition: color var(--dur-fast) var(--ease-out);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: var(--s-3);
+      right: var(--s-3);
+      bottom: -1px;
+      height: 2px;
+      background: var(--c-forest-900);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--dur) var(--ease-out);
+
+      @include up($bp-md) {
+        bottom: -12px;
+      }
+    }
+
+    &:hover {
+      color: var(--c-ink);
+    }
+
+    &.ativo {
+      color: var(--c-ink);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.topo__fundo {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-size: var(--t-sm);
+  font-weight: 550;
+  color: var(--c-ink-2);
+  white-space: nowrap;
+
+  .eyebrow {
+    font-size: var(--t-2xs);
+  }
+}
+
+main {
+  flex: 1;
+  outline: none;
+}
+
+.rodape {
+  margin-top: var(--s-9);
+  border-top: 1px solid var(--c-line);
+  font-size: var(--t-xs);
+  color: var(--c-ink-2);
+}
+
+.rodape__linha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-5);
+  padding-block: var(--s-5);
+}
